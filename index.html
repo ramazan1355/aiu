@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AIU | International Student Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0052cc;
+            --primary-dark: #003d99;
+            --accent: #ffab00;
+            --bg: #f4f7fb;
+            --card: #ffffff;
+            --text: #172b4d;
+            --text-light: #6b778c;
+            --success: #36b37e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; -webkit-tap-highlight-color: transparent; }
+        body { background: var(--bg); color: var(--text); padding-bottom: 100px; line-height: 1.5; }
+
+        header { 
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            padding: 15px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo { font-weight: 800; font-size: 1.3rem; color: var(--primary); }
+        .apply-badge { background: var(--primary); color: white; padding: 6px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-decoration: none; }
+
+        .hero { 
+            margin: 15px; padding: 35px 25px; 
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 30px; color: white; position: relative; overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,82,204,0.2);
+        }
+        .hero h1 { font-size: 2rem; margin-bottom: 10px; line-height: 1.2; }
+        .hero p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 25px; }
+
+        .btn-wa { 
+            background: #25D366; color: white; padding: 14px 20px; 
+            border-radius: 16px; text-decoration: none; display: flex; 
+            align-items: center; justify-content: center; gap: 10px;
+            font-weight: 700; box-shadow: 0 8px 20px rgba(37,211,102,0.3);
+            transition: 0.3s;
+        }
+
+        .section-title { padding: 20px 20px 10px; font-weight: 800; font-size: 1.1rem; color: var(--primary-dark); }
+        
+        /* New Info Block Styles */
+        .content-card {
+            background: var(--card); margin: 0 20px 15px; padding: 20px;
+            border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .content-card h3 { font-size: 1.1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .content-card p { font-size: 0.85rem; color: var(--text-light); margin-bottom: 10px; }
+        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .tag { background: #f0f2f5; padding: 4px 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; color: var(--primary); }
+
+        .scroll-box { display: flex; overflow-x: auto; padding: 10px 20px; gap: 12px; scrollbar-width: none; }
+        .scroll-box::-webkit-scrollbar { display: none; }
+
+        .info-card { 
+            background: var(--card); min-width: 260px; padding: 20px; 
+            border-radius: 24px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); 
+        }
+
+        .cost-list { background: var(--card); margin: 0 20px; padding: 20px; border-radius: 24px; }
+        .cost-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #f0f2f5; }
+        .cost-item:last-child { border: none; }
+        .cost-val { font-weight: 700; color: var(--success); }
+
+        .reg-form { background: #fff; margin: 20px; padding: 25px; border-radius: 24px; border: 2px solid #eef0f4; }
+        input, select { width: 100%; padding: 15px; margin-bottom: 12px; border-radius: 14px; border: 1px solid #ddd; background: #f8f9fa; font-size: 1rem; }
+        .submit-btn { background: var(--primary); color: white; width: 100%; padding: 16px; border: none; border-radius: 14px; font-weight: 700; }
+
+        .bottom-nav { 
+            position: fixed; bottom: 15px; left: 15px; right: 15px; 
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+            padding: 12px; display: flex; justify-content: space-around;
+            border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .nav-link { text-align: center; text-decoration: none; color: #888; font-size: 0.7rem; font-weight: 600; }
+        .nav-link.active { color: var(--primary); }
+        .nav-icon { display: block; font-size: 1.4rem; margin-bottom: 2px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">AIU PORTAL</div>
+        <a href="#form" class="apply-badge">Admission 2026</a>
+    </header>
+
+    <div class="hero">
+        <h1>Global Education <br>in Astana</h1>
+        <p>Astana International University (AIU) is your gateway to a professional career with a worldwide recognized diploma.</p>
+        <a href="https://wa.me/77777777777?text=Hello!%20I%20am%20interested%20in%20applying%20to%20AIU" class="btn-wa">
+            <span>Talk to PR Manager</span>
+        </a>
+    </div>
+
+    <div class="section-title">Why AIU?</div>
+    <div class="content-card">
+        <h3>🏢 About University</h3>
+        <p>AIU is a modern multidisciplinary university in the heart of Kazakhstan. We combine academic traditions with innovative technologies.</p>
+        <div class="tag-container">
+            <span class="tag">✓ English Taught</span>
+            <span class="tag">✓ EU Standards</span>
+            <span class="tag">✓ Top Faculty</span>
+        </div>
+    </div>
+
+    <div class="section-title">Academic Schools</div>
+    <div class="scroll-box">
+        <div class="info-card">
+            <h3>💻 IT & Engineering</h3>
+            <p>Innovative programs in Software Engineering, AI, and Cybersecurity.</p>
+        </div>
+        <div class="info-card">
+            <h3>⚖️ Law & Social Sci</h3>
+            <p>International Law, Psychology, and International Relations.</p>
+        </div>
+        <div class="info-card">
+            <h3>🎭 Education & Arts</h3>
+            <p>Pedagogy, Philology, and Digital Design.</p>
+        </div>
+    </div>
+
+    <div class="section-title">Global Network</div>
+    <div class="content-card" style="border-left: 4px solid var(--accent);">
+        <h3>🌍 International Partners</h3>
+        <p>We work with leading universities from Europe, USA, and Asia. Our students participate in <b>Erasmus+</b> exchange programs.</p>
+        <p style="font-size: 0.8rem;">Partners: UIUC (USA), Peking University (China), and more.</p>
+    </div>
+
+    <div class="section-title">Campus & Facilities</div>
+    <div class="content-card">
+        <h3>📍 Central Location</h3>
+        <p>Our campus is located in the most vibrant part of Astana, surrounded by parks and business centers.</p>
+        <div class="tag-container">
+            <span class="tag">Smart Library</span>
+            <span class="tag">IT Hubs</span>
+            <span class="tag">Modern Dorm</span>
+        </div>
+    </div>
+
+    <div class="section-title">Student Budget (Est.)</div>
+    <div class="cost-list">
+        <div class="cost-item">
+            <span>Tuition / Year</span>
+            <span class="cost-val">$2,800 - $3,500</span>
+        </div>
+        <div class="cost-item">
+            <span>Accommodation</span>
+            <span class="cost-val">$120 / month</span>
+        </div>
+        <div class="cost-item">
+            <span>Meals & Life</span>
+            <span class="cost-val">~$250 / month</span>
+        </div>
+    </div>
+
+    <div class="section-title">Apply Now</div>
+    <div class="reg-form" id="form">
+        <div id="form-content">
+            <input type="text" id="name" placeholder="Full Name">
+            <select id="prog">
+                <option value="" disabled selected>Target Program</option>
+                <option>Information Systems</option>
+                <option>International Business</option>
+                <option>Psychology</option>
+                <option>Design</option>
+            </select>
+            <button class="submit-btn" onclick="sendForm()">Submit Application</button>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-link active"><span class="nav-icon">🏠</span>Home</a>
+        <a href="https://wa.me/77777777777" class="nav-link"><span class="nav-icon">💬</span>WhatsApp</a>
+        <a href="#form" class="nav-link"><span class="nav-icon">📝</span>Register</a>
+        <a href="#" class="nav-link"><span class="nav-icon">🎓</span>Programs</a>
+    </nav>
+
+    <script>
+        function sendForm() {
+            const name = document.getElementById('name').value;
+            const prog = document.getElementById('prog').value;
+            if(!name || !prog) { alert("Please fill all fields"); return; }
+
+            const content = document.getElementById('form-content');
+            content.innerHTML = `<div style="text-align:center; padding: 20px;">
+                <h2 style="color:var(--success);">Success!</h2>
+                <p>Application for ${name} received. We will contact you soon.</p>
+            </div>`;
+        }
+    </script>
+</body>
+</html>
